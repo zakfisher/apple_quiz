@@ -9,13 +9,6 @@ Login = function(id) {
         theme : 'default',
         ajaxURL : '/api/user/login/'
     };
-    module.setTheme = function(theme) {
-        config.theme = theme;
-        $(id).attr('data-theme', config.theme);
-    };
-    module.displayMsg = function(type, msg) {
-        $(module.message).find('p').removeClass('success error').addClass(type).text(msg).show();
-    };
     var submitForm = function(e) {
         e.preventDefault();
         var POST = {
@@ -49,6 +42,13 @@ Login = function(id) {
         .error(function() {
             module.displayMsg('error', 'Unable to reach server.');
         });
+    };
+    module.setTheme = function(theme) {
+        config.theme = theme;
+        $(id).attr('data-theme', config.theme);
+    };
+    module.displayMsg = function(type, msg) {
+        $(module.message).find('p').removeClass('success error').addClass(type).text(msg).show();
     };
     module.init = function(opts) {
         if (typeof opts !== 'undefined') $.extend(config, opts);
