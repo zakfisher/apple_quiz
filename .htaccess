@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# API Calls
+RewriteRule ^api/(.*)/(.*)/(.*) api/?c=$1&m=$2&p=$3
+
+# Public URLs
+RewriteRule ^$ /public/ [L]
+#RewriteRule ^about public/about.php

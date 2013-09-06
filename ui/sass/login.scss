@@ -1,0 +1,15 @@
+@import 'config/mixins';
+
+div.login-wrapper {
+   * {
+      border: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 12px;
+      margin: 0;
+      padding: 0;
+      @include box-shadow(none);
+   }
+
+}
+
+@import 'config/browsers';

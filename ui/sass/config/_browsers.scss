@@ -1,0 +1,50 @@
+/*
+ * Cross Browser Styles
+ *
+ * Author: Zachary Fisher - zfisher@zfidesign.com
+ * * * * * * * * * * * * * * * * * * * * * * * * */
+
+// Mac
+body[data-platform=mac] {
+
+   // Mac Chrome
+   &[data-browser=chrome] {}
+
+   // Mac Firefox
+   &[data-browser=firefox] {}
+
+   // Mac Safari
+   &[data-browser=safari] {}
+
+   // Mac Opera
+   &[data-browser=opera] {}
+
+}
+
+// Windows
+body[data-platform=windows] {
+
+   // Windows Chrome
+   &[data-browser=chrome] {}
+
+   // Windows Firefox
+   &[data-browser=firefox] {}
+
+   // Windows Safari
+   &[data-browser=safari] {}
+
+   // Windows Opera
+   &[data-browser=opera] {}
+
+   // Internet Explorer
+   &[data-browser=msie] {
+
+      // IE 9
+      &[data-version='9.0'] {}
+
+      // IE 8
+      &[data-version='8.0'] {}
+
+   }
+
+}

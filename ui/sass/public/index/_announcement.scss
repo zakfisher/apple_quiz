@@ -1,0 +1,28 @@
+#announcement {
+   *:not(a):not(.close) { cursor: move; }
+   max-width: 725px;
+   left: 25px;
+   top: 110px;
+   z-index: 20;
+   div.b1.accent {
+      @include box-shadow(0 2px 5px black);
+      div.text { left: 140px; }
+   }
+   div.close {
+      background: $gray4;
+      cursor: pointer;
+      height: 20px;
+      width: 20px;
+      i {
+         color: $gray3;
+         cursor: pointer;
+         font-size: 16px;
+         position: absolute;
+         left: 4px;
+         top: 4px;
+      }
+      &:hover {
+         i { color: $gray2; }
+      }
+   }
+}

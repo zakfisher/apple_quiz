@@ -1,0 +1,24 @@
+@media (max-width: 1020px) {
+   #zf {
+      h6 { font-size: 12px; }
+   }
+}
+
+@media (max-width: 944px) {
+   #two-col-content {
+      div.bg-vertical-divider { display: none; }
+      div.bg-horizontal-divider { display: block; }
+      div.column {
+         width: 100%;
+         &.right { padding-top: 0; }
+      }
+   }
+   #zf { display: none; }
+   #fun-widget { display: none; }
+}
+
+@media (max-width: 500px) {
+   #blog-posts {
+      div.logo { display: none; }
+   }
+}
