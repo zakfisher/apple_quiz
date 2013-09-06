@@ -1,12 +1,16 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . '/system/config.php');
 
-$controllerMap = array(
-    'music' => 'MusicController'
+//print md5('password');
+
+$API = array(
+    'user' => array(
+        'login' => array('controller' => 'UserController', 'method' => 'login')
+    )
 );
 
-$class = $controllerMap[$_GET['c']];
-$method = $_GET['m'];
+$class = $API[$_GET['c']][$_GET['m']]['controller'];
+$method = $API[$_GET['c']][$_GET['m']]['method'];
 
 $params = isset($_POST) ? array($_POST) : array();
 

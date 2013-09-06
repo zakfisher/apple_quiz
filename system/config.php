@@ -21,11 +21,11 @@ require_once(ROOT . 'system/utilities/import.php');
 require_once(ROOT . 'system/utilities/json.php');
 require_once(ROOT . 'system/utilities/text.php');
 
-/** Controllers **/
-require_once(ROOT . 'system/controller/login.php');
-
 /** Models **/
-require_once(ROOT . 'system/model/login.php');
+require_once(ROOT . 'system/model/user.php');
+
+/** Controllers **/
+require_once(ROOT . 'system/controller/user.php');
 
 /** Launch **/
 $tpl = new Savant3();

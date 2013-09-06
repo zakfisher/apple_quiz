@@ -1,43 +1,84 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * *
- * WOA Global Namespace
+ * Login Module
  *
  * Author: Zachary Fisher - zfisher@zfidesign.com
  * * * * * * * * * * * * * * * * * * * * * * * * */
-WOA = new function() {
-    var filter = function(value, list, count) {
-        count = 0;
-        $(list).each(function(i, mp3) {
-            if ($(mp3).text().toLowerCase().indexOf(value) != -1) {
-                $(mp3).show();
-                count++;
-            }
-            else $(mp3).hide();
-        });
-        return count;
+Login = function(id) {
+    var module = this;
+    var config = {
+        theme : 'default',
+        ajaxURL : '/api/user/login/'
     };
+    module.setTheme = function(theme) {
+        config.theme = theme;
+        $(id).attr('data-theme', config.theme);
+    };
+    module.displayMsg = function(type, msg) {
+        $(module.message).find('p').removeClass('success error').addClass(type).text(msg).show();
+    };
+    var submitForm = function(e) {
+        e.preventDefault();
+        var POST = {
+            username : $(module.username).val(),
+            password : $(module.password).val()
+        };
+        var usernameExists = POST.username.length > 0
+        var passwordExists = POST.password.length > 0
+        if (!usernameExists && !passwordExists) {
+            module.displayMsg('error', 'You must provide credentials to login.');
+            return false;
+        }
+        if (POST.username.length == 0) {
+            module.displayMsg('error', 'You must provide a username to login.');
+            return false;
+        }
+        if (POST.password.length == 0) {
+            module.displayMsg('error', 'You must provide a password to login.');
+            return false;
+        }
+        $(module.submitBtn).attr('disabled', '');
+        $.post(config.ajaxURL, POST, function(data) {
+            $(module.submitBtn).prop('disabled', false);
+            if (data.success) {
+                module.displayMsg('success', data.success);
+                console.log(data.success);
+            }
+            if (data.error) {
+                module.displayMsg('error', data.error);
+                console.log(data.error);
+            }
+        })
+        .error(function() {
+            module.displayMsg('error', 'Unable to reach server.');
+            $(module.submitBtn).prop('disabled', false);
+        });
+    };
+    module.init = function(opts) {
+        if (typeof opts !== 'undefined') $.extend(config, opts);
+        module.message   = $(id).find('div.message');
+        module.form      = id + ' form';
+        module.username  = module.form + ' input[name=username]';
+        module.password  = module.form + ' input[name=password]';
+        module.submitBtn = module.form + ' input[name=submit]';
+        module.setTheme(config.theme);
+        $(document).on('submit', module.form, submitForm);
+        $(id).data('login', module);
+    };
+};
+
+$(function() {
+    Login.prototype.existingIDs = [];
     var getRandomInt = function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
-    $(document).on('keyup', '#search', function(e) {
-        $('#all-count, #latest-count').html('');
-        var searchVal = $('#search').val().toLowerCase();
-        $('#all-count').text('Results Found: ' + filter(searchVal, '#all-results a'));
-        $('#latest-count').text('Showing: ' + filter(searchVal, '#latest-results a'));
+    $('div[data-module=login]').each(function(i, module) {
+        var id = 'login-' + getRandomInt(0, 12345);
+        while ($.inArray(id, Login.prototype.existingIDs) != -1) {
+            id = 'login-' + getRandomInt(0, 12345);
+        }
+        Login.prototype.existingIDs.push(id);
+        $(module).attr('id', id);
+        var login = new Login('#' + id);
+        login.init();
     });
-    $(document).on('click', '#all-results a, #latest-results a', function(e) {
-        $('#playing').remove();
-        $('#now-playing').show().find('p').text($(e.target).text()).after('<span id="playing"><audio class="clr left" src="' + $(e.target).attr('data-url') + '" type="audio/mp3" controls="controls"></span>');
-        var player = new MediaElementPlayer('audio',{
-            audioWidth: 280,
-            success: function(mediaElement, domObject) {
-                mediaElement.addEventListener('ended', function(e) {
-                    var max = $('#all-count').text();
-                    max = max.split('Results Found: ');
-                    max = Number(max[1]);
-                    $('#all-results a')[getRandomInt(0, max)].click();
-                }, false);
-            }
-        });
-        player.play();
-    });
-};
+});
