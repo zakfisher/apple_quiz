@@ -10,3 +10,16 @@
     <link type="text/css" href="ui/css/login.css" rel="stylesheet" />
 </head>
 <body>
+<div id="navigation">
+    <p>Author: Zachary Fisher</p>
+    <p>Email: zfisher@zfidesign.com</p>
+    <p>Phone: 650 276 9184</p>
+    <ul>
+        <li>
+            <a href="https://github.com/zakfisher/apple_quiz" target="_blank">View on Github</a>
+        </li>
+        <li>
+            <a href>Add an Instance</a>
+        </li>
+    </ul>
+</div>

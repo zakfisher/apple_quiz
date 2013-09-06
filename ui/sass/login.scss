@@ -5,6 +5,12 @@ $darkGray : #232323;
 $red : #db4a39;
 $lightRed : #FF0000;
 
+#navigation {
+   left: 10px;
+   position: fixed;
+   top: 0;
+}
+
 div[data-module=login] {
    * {
       border: none;
