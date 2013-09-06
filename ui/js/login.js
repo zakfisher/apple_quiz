@@ -71,14 +71,23 @@ $(function() {
     var getRandomInt = function(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     };
-    $('div[data-module=login]').each(function(i, module) {
-        var id = 'login-' + getRandomInt(0, 12345);
-        while ($.inArray(id, Login.prototype.existingIDs) != -1) {
-            id = 'login-' + getRandomInt(0, 12345);
-        }
-        Login.prototype.existingIDs.push(id);
-        $(module).attr('id', id);
-        var login = new Login('#' + id);
-        login.init();
+    var initAll = function() {
+        $('div[data-module=login]').each(function(i, module) {
+            if (!$(module).is('id')) {
+                var id = 'login-' + getRandomInt(0, 12345);
+                while ($.inArray(id, Login.prototype.existingIDs) != -1) {
+                    id = 'login-' + getRandomInt(0, 12345);
+                }
+                Login.prototype.existingIDs.push(id);
+                $(module).attr('id', id);
+                var login = new Login('#' + id);
+                login.init();
+            }
+        });
+    };
+    initAll();
+    $(document).on('click', '#navigation a.add-instance', function() {
+        Handlebars.renderTemplate('login-module', {}, 'body', 'append');
+        initAll();
     });
 });

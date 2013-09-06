@@ -19,7 +19,7 @@
             <a href="https://github.com/zakfisher/apple_quiz" target="_blank">View on Github</a>
         </li>
         <li>
-            <a href>Add an Instance</a>
+            <a href="javascript:void(0);" class="add-instance" href>Add an Instance</a>
         </li>
     </ul>
 </div>

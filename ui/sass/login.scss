@@ -5,25 +5,37 @@ $darkGray : #232323;
 $red : #db4a39;
 $lightRed : #FF0000;
 
+* {
+   border: none;
+   font-family: 'Arial', sans-serif;
+   font-size: 12px;
+   font-weight: 500;
+   margin: 0;
+   padding: 0;
+   @include box-shadow(none);
+}
+
 #navigation {
    left: 10px;
    position: fixed;
-   top: 0;
+   top: 10px;
+   p {
+      font-size: 14px;
+      line-height: 20px;
+   }
+   ul {
+      padding: 10px;
+      li {
+         list-style-type: none;
+         line-height: 20px;
+      }
+   }
 }
 
 div[data-module=login] {
-   * {
-      border: none;
-      font-family: 'Arial', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      margin: 0;
-      padding: 0;
-      @include box-shadow(none);
-   }
    &[data-theme=default] {
       background: $darkGray;
-      margin: 0 auto;
+      margin: 25px auto;
       width: 500px;
       form {
          * { @include border-radius(2px); }
