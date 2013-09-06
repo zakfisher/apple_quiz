@@ -14,6 +14,9 @@
     <p>Author: Zachary Fisher</p>
     <p>Email: zfisher@zfidesign.com</p>
     <p>Phone: 650 276 9184</p>
+    <br/>
+    <p>Username: username</p>
+    <p>Password: password</p>
     <ul>
         <li>
             <a href="https://github.com/zakfisher/apple_quiz" target="_blank">View on Github</a>
