@@ -60,6 +60,10 @@ Login = function(id) {
         module.setTheme(config.theme);
         $(document).on('submit', module.form, submitForm);
         $(id).data('login', module);
+        if ($('body').attr('data-browser') == 'msie' && $('body').attr('data-version') == '9.0') {
+            $(module.username).val('Apple ID');
+            $(module.password).val('Password');
+        }
     };
 };
 

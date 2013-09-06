@@ -9,11 +9,12 @@
     <link href="ui/images/favicon.ico" rel="icon" type="image/x-icon">
     <link type="text/css" href="ui/css/login.css" rel="stylesheet" />
 </head>
-<body>
+<body data-platform="<?= $this->browser['platform']; ?>" data-browser="<?= $this->browser['short_name']; ?>" data-version="<?= $this->browser['version']; ?>">
 <div id="navigation">
-    <p>Author: Zachary Fisher</p>
-    <p>Email: zfisher@zfidesign.com</p>
-    <p>Phone: 650 276 9184</p>
+    <p>Author:</p>
+    <p>Zachary Fisher</p>
+    <p>zfisher@zfidesign.com</p>
+    <p>650 276 9184</p>
     <br/>
     <p>Username: username</p>
     <p>Password: password</p>
