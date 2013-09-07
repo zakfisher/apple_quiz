@@ -1,0 +1,26 @@
+/*
+ * Navigation Styles
+ *
+ * Author: Zachary Fisher - zfisher@zfidesign.com
+ * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#navigation {
+   left: 10px;
+   position: fixed;
+   top: 25px;
+   p {
+      font-size: 14px;
+      line-height: 20px;
+   }
+   ul {
+      padding: 10px 0;
+      li {
+         list-style-type: none;
+         line-height: 20px;
+      }
+   }
+}
+
+@media (max-width: 820px) {
+   #navigation { display: none; }
+}

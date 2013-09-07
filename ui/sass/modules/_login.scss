@@ -1,0 +1,66 @@
+/*
+ * Login Module Styles
+ *
+ * Author: Zachary Fisher - zfisher@zfidesign.com
+ * * * * * * * * * * * * * * * * * * * * * * * * */
+
+div[data-module=login] {
+   &[data-theme=default] {
+      background: $darkGray;
+      margin: 25px auto;
+      width: 96%;
+      max-width: 500px;
+      form {
+         * { @include border-radius(2px); }
+         position: relative;
+         padding: 50px 0;
+         width: 80%;
+         max-width: 324px;
+         margin: 0 auto;
+         h2 {
+            color: $lightGray;
+            font-size: 14px;
+         }
+         fieldset {
+            border: 2px solid black;
+            margin: 15px 0;
+            input {
+               background: none;
+               padding: 10px 3%;
+            }
+            &.text {
+               background: $lightGray;
+               input {
+                  &[type=text],
+                  &[type=password] {
+                     color: $darkGray;
+                     width: 94%;
+                  }
+               }
+            }
+            &.submit {
+               background: $red;
+               color: white;
+               cursor: pointer;
+               position: relative;
+               &:hover {
+                  background: $lightRed;
+               }
+               input[type=submit] {
+                  height: 100%;
+                  width: 100%;
+                  cursor: pointer;
+                  color: white;
+               }
+            }
+         }
+         div.message {
+            p {
+               text-align: center;
+               &.success { color: lime; }
+               &.error { color: red; }
+            }
+         }
+      }
+   }
+}

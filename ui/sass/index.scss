@@ -1,0 +1,26 @@
+/*
+ * Global Styles
+ *
+ * Author: Zachary Fisher - zfisher@zfidesign.com
+ * * * * * * * * * * * * * * * * * * * * * * * * */
+
+$lightGray : #e8e8e8;
+$darkGray  : #232323;
+$red       : #db4a39;
+$lightRed  : #FF0000;
+
+@import 'config/mixins';
+
+* {
+   border: none;
+   font-family: 'Arial', sans-serif;
+   font-size: 12px;
+   font-weight: 500;
+   margin: 0;
+   padding: 0;
+   @include box-shadow(none);
+}
+
+@import 'modules/login';
+@import 'modules/navigation';
+@import 'config/browsers';
