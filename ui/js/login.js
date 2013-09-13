@@ -19,7 +19,6 @@ Login = function(id) {
         var passwordExists = POST.password.length > 0
         if (!usernameExists && !passwordExists) {
             alert('You must provide a username and password to login.');
-            console.log('You must provide a username and password to login.');
             return false;
         }
         if (POST.username.length == 0) {
