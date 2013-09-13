@@ -19,15 +19,18 @@ Login = function(id) {
         var passwordExists = POST.password.length > 0
         if (!usernameExists && !passwordExists) {
             alert('You must provide a username and password to login.');
+            console.log('You must provide a username and password to login.');
             //module.displayMsg('error', 'You must provide a username and password to login.');
             return false;
         }
         if (POST.username.length == 0) {
+            alert('You must provide a username to login.');
             console.log('You must provide a username to login.');
             //module.displayMsg('error', 'You must provide a username to login.');
             return false;
         }
         if (POST.password.length == 0) {
+            alert('You must provide a password to login.');
             console.log('You must provide a password to login.');
             //module.displayMsg('error', 'You must provide a password to login.');
             return false;
