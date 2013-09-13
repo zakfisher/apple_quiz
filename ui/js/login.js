@@ -18,24 +18,27 @@ Login = function(id) {
         var usernameExists = POST.username.length > 0
         var passwordExists = POST.password.length > 0
         if (!usernameExists && !passwordExists) {
-            module.displayMsg('error', 'You must provide credentials to login.');
+            alert('You must provide a username and password to login.');
+            //module.displayMsg('error', 'You must provide a username and password to login.');
             return false;
         }
         if (POST.username.length == 0) {
-            module.displayMsg('error', 'You must provide a username to login.');
+            console.log('You must provide a username to login.');
+            //module.displayMsg('error', 'You must provide a username to login.');
             return false;
         }
         if (POST.password.length == 0) {
-            module.displayMsg('error', 'You must provide a password to login.');
+            console.log('You must provide a password to login.');
+            //module.displayMsg('error', 'You must provide a password to login.');
             return false;
         }
         $.post(config.ajaxURL, POST, function(data) {
             if (data.success) {
-                module.displayMsg('success', data.success);
+                //module.displayMsg('success', data.success);
                 console.log(data.success);
             }
             if (data.error) {
-                module.displayMsg('error', data.error);
+                //module.displayMsg('error', data.error);
                 console.log(data.error);
             }
         })

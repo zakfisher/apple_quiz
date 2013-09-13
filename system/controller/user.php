@@ -9,7 +9,7 @@ class UserController {
             return $model->authenticate($params);
         }
         if (!isset($params['username']) && !isset($params['password'])) {
-            return array('error' => 'You must provide credentials to login.');
+            return array('error' => 'You must provide a username and password to login.');
         }
         if (!isset($params['username'])) {
             return array('error' => 'You must provide a username to login.');
