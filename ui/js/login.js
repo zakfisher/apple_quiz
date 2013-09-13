@@ -20,41 +20,31 @@ Login = function(id) {
         if (!usernameExists && !passwordExists) {
             alert('You must provide a username and password to login.');
             console.log('You must provide a username and password to login.');
-            //module.displayMsg('error', 'You must provide a username and password to login.');
             return false;
         }
         if (POST.username.length == 0) {
             alert('You must provide a username to login.');
-            console.log('You must provide a username to login.');
-            //module.displayMsg('error', 'You must provide a username to login.');
             return false;
         }
         if (POST.password.length == 0) {
             alert('You must provide a password to login.');
-            console.log('You must provide a password to login.');
-            //module.displayMsg('error', 'You must provide a password to login.');
             return false;
         }
         $.post(config.ajaxURL, POST, function(data) {
             if (data.success) {
-                //module.displayMsg('success', data.success);
                 console.log(data.success);
             }
             if (data.error) {
-                //module.displayMsg('error', data.error);
                 console.log(data.error);
             }
         })
         .error(function() {
-            module.displayMsg('error', 'Unable to reach server.');
+            console.log('Unable to reach server.');
         });
     };
     module.setTheme = function(theme) {
         config.theme = theme;
         $(id).attr('data-theme', config.theme);
-    };
-    module.displayMsg = function(type, msg) {
-        $(module.message).find('p').removeClass('success error').addClass(type).text(msg).show();
     };
     module.init = function(opts) {
         if (typeof opts !== 'undefined') $.extend(config, opts);

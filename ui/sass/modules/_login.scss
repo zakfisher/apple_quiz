@@ -53,13 +53,6 @@ div[data-module=login] {
                }
             }
          }
-         div.message {
-            p {
-               text-align: center;
-               &.success { color: lime; }
-               &.error { color: red; }
-            }
-         }
       }
    }
 }

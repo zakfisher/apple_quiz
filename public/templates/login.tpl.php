@@ -10,6 +10,5 @@
         <fieldset class="submit">
             <input type="submit" name="submit" value="Login to your account" />
         </fieldset>
-        <div class="message"><p>&nbsp;</p></div>
     </form>
 </div>
