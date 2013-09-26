@@ -15,8 +15,8 @@ Login = function(id) {
             username : $(module.username).val(),
             password : $(module.password).val()
         };
-        var usernameExists = POST.username.length > 0
-        var passwordExists = POST.password.length > 0
+        var usernameExists = POST.username.length > 0;
+        var passwordExists = POST.password.length > 0;
         if (!usernameExists && !passwordExists) {
             alert('You must provide a username and password to login.');
             return false;
@@ -47,7 +47,6 @@ Login = function(id) {
     };
     module.init = function(opts) {
         if (typeof opts !== 'undefined') $.extend(config, opts);
-        module.message   = $(id).find('div.message');
         module.form      = id + ' form';
         module.username  = module.form + ' input[name=username]';
         module.password  = module.form + ' input[name=password]';
